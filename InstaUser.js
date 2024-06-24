@@ -1,0 +1,59 @@
+const mongoose=require('mongoose');
+const instaUserSchema=new mongoose.Schema({
+    fullname:{
+        type:String,
+        required:true,
+    },
+    username:{
+        type:String,
+        required:true,
+    },
+    id:{
+        type:Number,
+        required:true,
+        unique:true,
+    },
+    blue_tick:{
+        type: Boolean,
+        default: false,
+    },
+    followers_count:{
+        type:Number,
+        required:true,
+    },
+    following_count:{
+        type:Number,
+        required:true,
+    },
+    followers_username:{
+        type:[String],
+        required:true,
+    },
+    followers_id:{
+        type:[Number],
+        required:true,
+    },
+    following_username:{
+        type:[String],
+        required:true,
+    },
+    following_id:{
+        type:[Number],
+        required:true,
+    },
+    location:{
+        type:String,
+        default:'Bengaluru',
+    },
+    bio:{
+        type:String,
+    },
+    tagged_posts:{
+        type:Number,
+    },
+    tagged_accounts:{
+        type:[String],
+    }
+});
+const instaUser=mongoose.model('InstaUser',instaUserSchema);
+module.exports=instaUser;
